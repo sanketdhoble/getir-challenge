@@ -10,9 +10,9 @@ Packages Used:
 - Typescript,
 - Mongoose,
 - Jest,
-- tslint,
+- Tslint,
 - Moment,
-- dotenv
+- Dotenv
 
 Please send a POST request to this url </br>
 https://fathomless-meadow-94286.herokuapp.com/api/records
