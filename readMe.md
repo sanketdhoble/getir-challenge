@@ -1,13 +1,13 @@
 # getir challenge 
 
 ```
-This is a nodeJs application. It has single endpoint that fethes data from given mongoDb url and returns result in the format mentioned.  
+This is a nodeJs application. It has single endpoint that fetches data from given mongoDb url
+and returns result in the format mentioned.
 ```
-
-Node version: 12.14.1
 
 Packages Used:
 - Express,
+- Typescript,
 - Mongoose,
 - Jest,
 - tslint,
@@ -28,12 +28,17 @@ BODY:
 }
 ```
 
-### Command to run the app locally
+Node version: 12.14.1
 
-#### create a .env file with
+### Setup to run the app locally
+
+create a .env file with
+```
 MONGO_URL={mongo_url_here}
+```
+Command:
 
-
-build: `npm run build` <br />
-start: `npm start` <br />
-test: `npm test` <br />
+- `npm install`
+- build: `npm run build`
+- start: `npm start`
+- test: `npm test`
