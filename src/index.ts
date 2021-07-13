@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 import { recordsRouter } from './routes/records';
+
+// middleware to validate record api request body
 app.use('/api/records', validateRecordRequest, recordsRouter);
 
 const server = app.listen(PORT, () => console.log(`Running on ${PORT}`));
@@ -42,7 +44,7 @@ const gracefulShutDown = () => {
         mongo.disconnect();
         if (err) {
             console.error(err);
-            process.exit(1); // failure
+            process.exit(1);
         }
     })
 }
