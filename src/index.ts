@@ -12,4 +12,37 @@ app.use(bodyParser.urlencoded({ extended: true }));
 import { recordsRouter } from './routes/records';
 app.use('/api/records', validateRecordRequest, recordsRouter);
 
-app.listen(PORT, () => console.log(`Running on ${PORT}`));
+const server = app.listen(PORT, () => console.log(`Running on ${PORT}`));
+
+process.on('uncaughtException', (err: Error) => {
+    console.log('UncaughtException', err);
+});
+
+process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
+    console.log('UnhandledRejection', reason);
+});
+
+process.on('SIGINT', () => {
+    let exitCode = 0;
+
+    try {
+        console.log('API - Got SigInt');
+        setTimeout(gracefulShutDown, 500);
+    } catch (err) {
+        exitCode = 1;
+        console.log('Disconnecting failed', err);
+    } finally {
+        console.log('Exiting process');
+        process.exit(exitCode);
+    }
+});
+
+const gracefulShutDown = () => {
+    server.close((err: any) => {
+        mongo.disconnect();
+        if (err) {
+            console.error(err);
+            process.exit(1); // failure
+        }
+    })
+}
