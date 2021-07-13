@@ -5,13 +5,26 @@ Packages Used:
 - Mongoose,
 - Jest,
 - tslint,
-- Moment
+- Moment,
+- dotenv
+
+
+POST https://fathomless-meadow-94286.herokuapp.com/api/records
+
+BODY:
+```javascript
+{
+    "minCount": number, //100
+    "maxCount": number, //500
+    "startDate": Date //"2013-05-31T07:43:27.060Z"
+    "endDate": Date //"2018-05-31T07:43:27.060Z"
+}
+```
 
 
 
+local run command:
 
-local run:
-
-build: `npm run build`
-start: `npm start`
-test: `npm test`
+build: `npm run build` <br />
+start: `npm start` <br />
+test: `npm test` <br />
