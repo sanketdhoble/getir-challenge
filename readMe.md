@@ -14,8 +14,8 @@ Packages Used:
 - Moment,
 - dotenv
 
-Please send a POST request to this url
-POST https://fathomless-meadow-94286.herokuapp.com/api/records
+Please send a POST request to this url </br>
+https://fathomless-meadow-94286.herokuapp.com/api/records
 
 ```javascript
 
@@ -28,7 +28,20 @@ BODY:
 }
 ```
 
-Node version: 12.14.1
+#### Working Curl:
+
+```bash
+curl --request POST 'https://fathomless-meadow-94286.herokuapp.com/api/records' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "minCount":100,
+    "maxCount": 300,
+    "startDate": "2014-12-12",
+    "endDate": "2015-01-12"
+}'
+```
+
+#### Node version: 12.14.1
 
 ### Setup to run the app locally
 
